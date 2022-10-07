@@ -6,6 +6,7 @@
     background-color: #564f4f;
     color: rgb(245, 245, 240);
   
+  
 
 }
 
@@ -14,7 +15,7 @@ body {
     background-image: url("../images/bls_image.png");
     background-repeat: no-repeat;
     color: white;
-
+ 
 
 }
 .error{
@@ -41,3 +42,21 @@ body {
     background-color: #d85e5e;
 }
 
+#boot-icon:hover{
+    cursor: pointer;
+}
+.gg-remove-r {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    border: 2px solid;
+    border-radius: 4px;
+    
+}
+
+.gg-remove:hover{
+    cursor: pointer;
+}
