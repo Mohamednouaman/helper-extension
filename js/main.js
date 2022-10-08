@@ -33,7 +33,7 @@ form.addEventListener('submit',function(e){
    }else{
     error.style.display="none"
     btn.disabled=true;
-    saveDataOnServer("https://blshelper.herokuapp.com/api/helper/addclient")
+    saveDataOnServer("https://aphelper.herokuapp.com/api/helper/addclient")
    }
    
 

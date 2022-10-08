@@ -9,10 +9,12 @@ clientContainer.appendChild(element);
 
 element.innerHTML = result;
 let getClients = async (url) => {
+
    try {
       let response = await fetch(url);
+   
       let data = await response.json();
-    
+   
       if (response.ok === true) {
 
          clientNumber.innerHTML = data.length
@@ -26,6 +28,12 @@ let getClients = async (url) => {
 
                for (let property in element) {
                   let td = createElement('td');
+                  if(property==='id'){
+                     
+                     td.style = "display:none"
+                  }
+                  
+                  
                   td.innerHTML = element[property];
                   tr.appendChild(td);
                }
@@ -45,10 +53,10 @@ let getClients = async (url) => {
          }
       } else {
 
-         window.location.replace("https://mohamednouaman.github.io/helper-extension/404.html");
+        window.location.replace("https://mohamednouaman.github.io/helper-extension/404.html");
       }
    } catch (error) {
-     
+   
       window.location.replace("https://mohamednouaman.github.io/helper-extension/errorPage/errorServer.html");
    }
 
@@ -67,7 +75,7 @@ function createDataContainerElement(element) {
    let tr = createElement("tr");
 
    let idCell = createElement("th");
-   idCell.style = "vertical-align:middle;"
+   idCell.style = "display:none"
    let nameCell = createElement("th");
    nameCell.style = "vertical-align:middle;"
    let firstNameCell = createElement("th");
@@ -119,15 +127,15 @@ function createDataContainerElement(element) {
 }
 
 async function removeClient(r){
-   let id = r.parentNode.parentNode.rowIndex;
-   let url="https://blshelper.herokuapp.com/api/helper/removeClient/"+id
+   let id = r.parentNode.parentNode.firstChild.innerText;
+   let url="https://aphelper.herokuapp.com/api/helper/removeClient/"+id
    document.getElementsByTagName("table")[0].deleteRow(id);
-   let response=await fetch(url);
+    let response=await fetch(url);
    if(response.ok==true){
       alert("Le client a été supprimé avec success");
      }else{
       alert("Something wrong");
-   }
+   } 
 }
 
-getClients("https://blshelper.herokuapp.com/api/helper/clients/loadAll");
+getClients("https://aphelper.herokuapp.com/api/helper/clients/loadAll");
