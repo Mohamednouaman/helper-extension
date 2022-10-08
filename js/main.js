@@ -46,8 +46,6 @@ let saveDataOnServer= async(url)=>{
         ,passportNumber:passportNo.value,issueDate:issueDate.value,expiryDate:expiryDate.value,passportPlace:issuePalace.value}
     let clientJSON=JSON.stringify(client)
 
-    console.log(clientJSON)
-    
     try {
         let response = await fetch(url, {
           method: 'POST',
