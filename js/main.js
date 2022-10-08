@@ -70,14 +70,14 @@ let saveDataOnServer= async(url)=>{
      
     
         } else {
-          window.location.replace("https://mohamednouaman.github.io/helper-extension/404.html");
+         // window.location.replace("https://mohamednouaman.github.io/helper-extension/404.html");
            
          
         }
       } catch (e) {
 
         
-         window.location.replace("https://mohamednouaman.github.io/helper-extension/errorPage/errorServer.html");
+        // window.location.replace("https://mohamednouaman.github.io/helper-extension/errorPage/errorServer.html");
 
 
       }
