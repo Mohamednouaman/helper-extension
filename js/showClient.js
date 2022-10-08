@@ -12,7 +12,7 @@ let getClients = async (url) => {
    try {
       let response = await fetch(url);
       let data = await response.json();
-      console.log(data)
+    
       if (response.ok === true) {
 
          clientNumber.innerHTML = data.length
@@ -40,23 +40,19 @@ let getClients = async (url) => {
             dataContainer.appendChild(tbody);
             element.appendChild(dataContainer);
          } else {
-            result = 'Aucun client trouvé'
+            result = 'Aucun client trouvé !'
             element.innerHTML = result;
          }
       } else {
 
-         console.log("No data found")
          window.location.replace("https://mohamednouaman.github.io/helper-extension/404.html");
       }
    } catch (error) {
-      console.log(error)
+     
       window.location.replace("https://mohamednouaman.github.io/helper-extension/errorPage/errorServer.html");
    }
 
 }
-setInterval(function () {
-   console.log(result)
-}, 3000)
 
 function createElement(element) { return document.createElement(element) }
 

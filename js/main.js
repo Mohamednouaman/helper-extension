@@ -33,7 +33,7 @@ form.addEventListener('submit',function(e){
    }else{
     error.style.display="none"
     btn.disabled=true;
-    saveDataOnServer("http://localhost:8080/api/helper/addclient")
+    saveDataOnServer("https://blshelper.herokuapp.com/api/helper/addclient")
    }
    
 
@@ -72,14 +72,14 @@ let saveDataOnServer= async(url)=>{
      
     
         } else {
-          window.location.replace("http://127.0.0.1:5500/errorPage/notFound.html");
+          window.location.replace("https://mohamednouaman.github.io/helper-extension/404.html");
            
          
         }
       } catch (e) {
 
         
-          window.location.replace("http://127.0.0.1:5500/errorPage/errorServer.html");
+         window.location.replace("https://mohamednouaman.github.io/helper-extension/errorPage/errorServer.html");
 
 
       }
