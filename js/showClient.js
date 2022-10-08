@@ -16,7 +16,7 @@ let getClients = async (url) => {
       if (response.ok === true) {
 
          clientNumber.innerHTML = data.length
-         if (data != null) {
+         if (data.length!=0) {
             result = ''
             let dataContainer = createDataContainerElement('table')
             let tbody = createElement('tbody');
@@ -46,11 +46,11 @@ let getClients = async (url) => {
       } else {
 
          console.log("No data found")
-         //window.location.replace("http://127.0.0.1:5500/errorPage/errorServer.html");
+         window.location.replace("https://mohamednouaman.github.io/helper-extension/404.html");
       }
    } catch (error) {
       console.log(error)
-      // window.location.replace("http://127.0.0.1:5500/errorPage/errorServer.html");
+      window.location.replace("https://mohamednouaman.github.io/helper-extension/errorPage/errorServer.html");
    }
 
 }
@@ -122,17 +122,15 @@ function createDataContainerElement(element) {
 
 }
 
-async function removeClient(this){
+async function removeClient(r){
    let id = r.parentNode.parentNode.rowIndex;
-   let url="https://blshelper.herokuapp.com/api/helper/removeClient"+id
+   let url="https://blshelper.herokuapp.com/api/helper/removeClient/"+id
+   document.getElementsByTagName("table")[0].deleteRow(id);
    let response=await fetch(url);
    if(response.ok==true){
-      console.log("Le client a été supprimé avec success");
-      
-      document.getElementsByTagName("table")[0].deleteRow(id);
-
-   }else{
-      console.log("Something wrong");
+      alert("Le client a été supprimé avec success");
+     }else{
+      alert("Something wrong");
    }
 }
 
