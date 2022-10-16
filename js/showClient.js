@@ -1,3 +1,14 @@
+let username=sessionStorage.getItem("username");
+if(username==null){
+
+    window.location.replace(window.location.origin+"/login.html")
+    
+}
+    let usernameContainer=document.getElementById('username');
+        usernameContainer.innerText=username;
+        localStorage.setItem('user',username);
+        document.cookie="COOKIES";
+
 let clientContainer = document.getElementById("client-container");
 clientContainer.classList.add('table-responsive')
 let clientNumber = document.getElementById('client-number');
@@ -8,17 +19,18 @@ let result = "Chargement des données est en cours ...";
 clientContainer.appendChild(element);
 
 element.innerHTML = result;
+
 let getClients = async (url) => {
 
    try {
       let response = await fetch(url);
    
-      let data = await response.json();
-   
-      if (response.ok === true) {
-
+      console.log(response)
+         
+      if (response.status === 200) {
+         let data = await response.json();
          clientNumber.innerHTML = data.length
-         if (data.length!=0) {
+      
             result = ''
             let dataContainer = createDataContainerElement('table')
             let tbody = createElement('tbody');
@@ -28,6 +40,7 @@ let getClients = async (url) => {
 
                for (let property in element) {
                   let td = createElement('td');
+                  if(property==='user') continue;
                   if(property==='id'){
                      
                      td.style = "display:none"
@@ -39,7 +52,7 @@ let getClients = async (url) => {
                }
 
                let td=createElement('td');
-                   td.innerHTML='<img data-toggle="tooltip" data-placement="top" title="supprimer" src="images/block.png" style="width:30px;height:30px" class="gg-remove" onclick="removeClient(this)"></i>';
+                   td.innerHTML='<img data-toggle="tooltip" data-placement="top" title="supprimer" src="images/block.png" style="width:30px;height:30px" class="gg-remove" onclick="removeClient(this)">';
                    tr.appendChild(td);
                tbody.appendChild(tr);
 
@@ -47,17 +60,22 @@ let getClients = async (url) => {
             element.innerHTML = result;
             dataContainer.appendChild(tbody);
             element.appendChild(dataContainer);
-         } else {
+         } else if(response.status==400) {
             result = 'Aucun client trouvé !'
             element.innerHTML = result;
-         }
+            element.classList.add('alert');
+            element.classList.add('alert-danger')
+            element.style="text-align:center"
+         
       } else {
 
-        window.location.replace("https://mohamednouaman.github.io/helper-extension/404.html");
+          window.location.replace(window.location.origin+"/404.html");
       }
    } catch (error) {
    
-      window.location.replace("https://mohamednouaman.github.io/helper-extension/errorPage/errorServer.html");
+     window.location.replace(window.location.origin+"/errorPage/errorServer.html");
+
+     console.log(error)
    }
 
 }
@@ -127,9 +145,10 @@ function createDataContainerElement(element) {
 }
 
 async function removeClient(r){
-   let id = r.parentNode.parentNode.firstChild.innerText;
-   let url="https://aphelper.herokuapp.com/api/helper/removeClient/"+id
-   document.getElementsByTagName("table")[0].deleteRow(id);
+   let clientId = r.parentNode.parentNode.firstChild.innerText;
+   let rowIndex= r.parentNode.parentNode.rowIndex
+   let url="https://aphelper.herokuapp.com/api/helper/removeClient/"+clientId
+   document.getElementsByTagName("table")[0].deleteRow(rowIndex);
     let response=await fetch(url);
    if(response.ok==true){
       alert("Le client a été supprimé avec success");
@@ -137,5 +156,7 @@ async function removeClient(r){
       alert("Something wrong");
    } 
 }
+let userId=JSON.parse(sessionStorage.getItem('user')).id;
+getClients("https://aphelper.herokuapp.com/api/helper/clients/"+userId);
 
-getClients("https://aphelper.herokuapp.com/api/helper/clients/loadAll");
+
