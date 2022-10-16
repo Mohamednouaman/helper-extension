@@ -42,7 +42,7 @@ let loadDataFromServer= async(url)=>{
              if(accountVerify(userPassword,userEmail)){
                sessionStorage.setItem("username",data.firstName+" "+data.lastName);
                sessionStorage.setItem("user",JSON.stringify(data));
-               location.replace(window.location.origin+"/index.html")
+               location.replace(window.location.origin+"/helper-extension/index.html")
              }else{
                 btn.disabled=false;
                 errorContainer.style.display="block";
@@ -54,13 +54,13 @@ let loadDataFromServer= async(url)=>{
           errorContainer.innerText="This account does't exist";
          } else{
  
-            window.location.replace(window.location.origin+"/404.html");
+            window.location.replace(window.location.origin+"/helper-extension/404.html");
             
          }
  
         } catch (e) {
  
-           window.location.replace(window.location.origin+"/errorPage/errorServer.html");
+           window.location.replace(window.location.origin+"/helper-extension/errorPage/errorServer.html");
  
           
        } 

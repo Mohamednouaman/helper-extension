@@ -66,14 +66,14 @@ let saveDataOnServer= async(url)=>{
 
         }else{
 
-       window.location.replace(window.location.origin+"/404.html");
+       window.location.replace(window.location.origin+"/helper-extension/404.html");
            
          
         }
       } catch (e) {
 
         
-       window.location.replace(window.location.origin+"/errorPage/errorServer.html");
+       window.location.replace(window.location.origin+"/helper-extension/errorPage/errorServer.html");
 
 
       }

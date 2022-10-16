@@ -1,7 +1,7 @@
 let username=sessionStorage.getItem("username");
 if(username==null){
 
-    window.location.replace(window.location.origin+"/login.html")
+    window.location.replace(window.location.origin+"/helper-extension/login.html")
     
 }else{
     console.log(sessionStorage)
