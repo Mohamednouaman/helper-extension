@@ -16,4 +16,3 @@ let logout=document.getElementById("logoutpage");
 
     });
 
-console.log("TTTTTTTTES");
