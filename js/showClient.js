@@ -7,7 +7,7 @@ if(username==null){
     let usernameContainer=document.getElementById('username');
         usernameContainer.innerText=username;
         localStorage.setItem('user',username);
-        document.cookie="COOKIES";
+        
 
 let clientContainer = document.getElementById("client-container");
 clientContainer.classList.add('table-responsive')
@@ -158,5 +158,13 @@ async function removeClient(r){
 }
 let userId=JSON.parse(sessionStorage.getItem('user')).id;
 getClients("https://aphelper.herokuapp.com/api/helper/clients/"+userId);
+
+
+let logout=document.getElementById("logoutpage");
+
+    logout.addEventListener("click",function(){
+    sessionStorage.clear()
+
+    });
 
 

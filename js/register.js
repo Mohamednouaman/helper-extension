@@ -43,7 +43,8 @@ let saveDataOnServer= async(url)=>{
             'Content-Type': 'application/json;charset=utf-8'        
           },    
           body:clientJSON
-        })
+        });
+        console.log(response);
         if (response.status === 200) {
           
           let inputs = form.querySelectorAll('input')
@@ -57,6 +58,7 @@ let saveDataOnServer= async(url)=>{
           messageContainer.classList.remove("alert-danger")
           messageContainer.classList.add("alert-success");
         } else if(response.status==400) {
+          
           btn.disabled=false;
           messageContainer.style.display="block";
           messageContainer.innerText="User already exists";

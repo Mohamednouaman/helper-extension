@@ -40,9 +40,16 @@ let loadDataFromServer= async(url)=>{
              let userPassword=data.password;
              console.log(accountVerify(userPassword,userEmail))
              if(accountVerify(userPassword,userEmail)){
+
+              if(data.state===true){
                sessionStorage.setItem("username",data.firstName+" "+data.lastName);
                sessionStorage.setItem("user",JSON.stringify(data));
-               location.replace(window.location.origin+"/helper-extension/index.html")
+               location.replace(window.location.origin+"/helper-extension/index.html");
+              }else{
+                btn.disabled=false;
+                errorContainer.style.display="block";
+                errorContainer.innerText="Votre compte doit être activé. Contactez votre administrateur";
+              }
              }else{
                 btn.disabled=false;
                 errorContainer.style.display="block";

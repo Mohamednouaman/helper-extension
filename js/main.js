@@ -7,19 +7,19 @@ if(username==null){
 import {validateData} from './validator.js';
 let email=document.getElementById('email');
 let password=document.getElementById('password');
-let firstName=document.getElementById("first_name");
+let firstName=document.getElementById("dfirst_name");
 
-let lastName=document.getElementById("last_name");
+let lastName=document.getElementById("dlast_name");
 
-let birthDate=document.getElementById("dateOfBirth");
+let birthDate=document.getElementById("ddateOfBirth");
 
-let passportNo=document.getElementById("passport_no");
+let passportNo=document.getElementById("dpassport_no");
 
-let issueDate=document.getElementById("pptIssueDate");
+let issueDate=document.getElementById("dpptIssueDate");
 
-let expiryDate=document.getElementById("pptExpiryDate");
+let expiryDate=document.getElementById("dpptExpiryDate");
 
-let issuePalace=document.getElementById("pptIssuePalace");
+let issuePalace=document.getElementById("dpptIssuePalace");
 
 let form=document.getElementById("form-id");
 
@@ -86,13 +86,13 @@ let saveDataOnServer= async(url)=>{
           error.innerText="Ce compte est déjà existé";
           btn.disabled=false;
         } else {
-        window.location.replace(window.location.origin+"/404.html");
+        window.location.replace(window.location.origin+"/helper-extension/404.html");
             
         }
       } catch (e) {
 
         console.log(e)
-         window.location.replace(window.location.origin+"/errorPage/errorServer.html");
+         window.location.replace(window.location.origin+"/helper-extension/errorPage/errorServer.html");
 
 
       }

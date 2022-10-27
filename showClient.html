@@ -2,7 +2,22 @@
 <html lang="en">
 
 <head>
+    <style>
+        .my-custom-scrollbar {
+            position: relative;
+            height: 500px;
+            overflow: auto;
+        }
 
+        .table-wrapper-scroll-y {
+            display: block;
+        }
+
+        thead tr {
+            position: sticky;
+
+        }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,7 +25,7 @@
     <meta name="author" content="">
 
     <title>liste client</title>
-  <script src="js/showClient.js" defer></script>
+    <script src="js/showClient.js" defer></script>
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -37,7 +52,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">BLS HELPER</div>
+                <div class="sidebar-brand-text mx-3">NO HELPER</div>
             </a>
 
             <!-- Divider -->
@@ -70,7 +85,7 @@
                         <h6 class="collapse-header">CLIENT MANAGEMENT</h6>
                         </span></span><a class="collapse-item active" href="showClient.html">Liste des clients</a>
                         <a class="collapse-item" href="addClient.html">Ajouter client</a>
-                   </div>
+                    </div>
                 </div>
             </li>
 
@@ -143,8 +158,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="username"></span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -178,15 +192,16 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h6 class="mb-4 text-gray-800">Nombre total de clients :<span id="client-number" style="margin-left: 4px; font-weight: bold;color:green"></span></h6>
+                    <h6 class="mb-4 text-gray-800">Nombre total de clients :<span id="client-number"
+                            style="margin-left: 4px; font-weight: bold;color:green"></span></h6>
 
                     <div class="row">
 
-                        <div class="col" id="client-container">
+                        <div class="col table-wrapper-scroll-y my-custom-scrollbar" id="client-container">
 
-                              
 
-                           
+
+
 
                         </div>
 
@@ -203,7 +218,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; BLSHelper 2022</span>
+                        <span>Copyright &copy; NOHelper 2022</span>
                     </div>
                 </div>
             </footer>
@@ -234,7 +249,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.html" id="logoutpage">Logout</a>
                 </div>
             </div>
         </div>
