@@ -52,7 +52,7 @@ let getClients = async (url) => {
                }
 
                let td=createElement('td');
-                   td.innerHTML='<img data-toggle="tooltip" data-placement="top" title="supprimer" src="images/block.png" style="width:30px;height:30px" class="gg-remove" onclick="removeClient(this)">';
+                   td.innerHTML='<img data-toggle="tooltip" data-placement="top" title="supprimer" src="images/block.png" style="width:30px;height:30px;cursor:pointer;" class="gg-remove" onclick="removeClient(this)">';
                    tr.appendChild(td);
                tbody.appendChild(tr);
 
