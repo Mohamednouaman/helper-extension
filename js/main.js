@@ -42,7 +42,7 @@ form.addEventListener('submit',function(e){
    }else{
     error.style.display="none";
     btn.disabled=true;
-    saveDataOnServer("https://aphelper.herokuapp.com/api/helper/addclient")
+    saveDataOnServer("http://localhost:8080/api/helper/addclient")
    }
    
 

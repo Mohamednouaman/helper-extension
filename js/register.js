@@ -23,7 +23,7 @@ if(validateData(data)){
 }else{
   messageContainer.style.display="none";
   btn.disabled=true;
-  saveDataOnServer("https://aphelper.herokuapp.com/api/helper/adduser")
+  saveDataOnServer("http://localhost:8080/api/helper/adduser")
 }
 
 })
