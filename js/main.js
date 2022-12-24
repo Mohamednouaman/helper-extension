@@ -42,7 +42,7 @@ form.addEventListener('submit',function(e){
    }else{
     error.style.display="none";
     btn.disabled=true;
-    saveDataOnServer("http://localhost:8080/api/helper/addclient")
+    saveDataOnServer("https://mapphelper.herokuapp.com/api/helper/addclient")
    }
    
 
@@ -83,7 +83,7 @@ let saveDataOnServer= async(url)=>{
     
         }else if(response.status==400){
           error.style.display="block";
-          error.innerText="Ce compte est déjà existé";
+          error.innerText="Ce compte est déjà existe";
           btn.disabled=false;
         } else {
         window.location.replace(window.location.origin+"/helper-extension/404.html");

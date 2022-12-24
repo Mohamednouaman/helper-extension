@@ -1,0 +1,2 @@
+2022-12-24 22:12:07.911 [info] Initial editor state {"filesToOpenOrCreate":[{"fileUri":{"$mid":1,"path":"/helper-extension","scheme":"file"},"type":1,"exists":false}],"filesToDiff":[],"filesToMerge":[]}
+2022-12-24 22:12:15.031 [info] [perf] Render performance baseline is 17ms

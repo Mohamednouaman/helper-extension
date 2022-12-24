@@ -147,7 +147,7 @@ function createDataContainerElement(element) {
 async function removeClient(r){
    let clientId = r.parentNode.parentNode.firstChild.innerText;
    let rowIndex= r.parentNode.parentNode.rowIndex
-   let url="http://localhost:8080/api/helper/removeClient/"+clientId
+   let url="https://mapphelper.herokuapp.com/api/helper/removeClient/"+clientId
    document.getElementsByTagName("table")[0].deleteRow(rowIndex);
     let response=await fetch(url);
    if(response.ok==true){
@@ -157,7 +157,7 @@ async function removeClient(r){
    } 
 }
 let userId=JSON.parse(sessionStorage.getItem('user')).id;
-getClients("http://localhost:8080/api/helper/clients/"+userId);
+getClients("https://mapphelper.herokuapp.com/api/helper/clients/"+userId);
 
 
 let logout=document.getElementById("logoutpage");
